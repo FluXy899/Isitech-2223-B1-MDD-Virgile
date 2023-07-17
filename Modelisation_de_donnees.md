@@ -33,7 +33,7 @@ Trois points clés :
 ### 1 - L'approche systemique 
 **Fonctionnement du systeme systemique** 
 
-![alt text](image.png)\
+![alt text](/img/image.png)\
 Le systeme de pilotage  : 
 - Il compose l'ensemble des acteurs qui vont **piloter** le systeme d'information
 
@@ -98,7 +98,7 @@ Pour effectuer la conceptiion d'un SI, on va utiliser un approche nivelée, elle
     On répond a la question : **Comment** les traitements sont-ils effectue ? 
 
 ### Résumé: Les niveaux de Merise 
-![alt text](image-1.png)
+![alt text](/img/image-1.png)
 
 ## Des données aux dépdendances fonctionnelles 
 
@@ -110,7 +110,7 @@ Pour etre integrées dans un systeme d'information, les données doivent etre tr
 - Logique ou booleen (true, false)
 
 Création d'un dictionnaire de données
-![alt text](image-2.png)
+![alt text](/img/image-2.png)
 
 ### Fiche adhérent
 ![alt text](/TD%201/Tableau%20adh%C3%A9rent%20.png)
@@ -119,9 +119,47 @@ Création d'un dictionnaire de données
 
 
 ### Les dépendances fonctionnelles 
+\
 Une dépendance fonctionelle est une relation entre deux attributs d'une table. Elle permet de définir une relation de dépendance entre 2 attributs d'une table 
-
-![alt text](image-4.png)
+# Sujet TP lundi
+![alt text](/img/image-14.png)
+![alt text](image-5.png)
 ![alt text](image-6.png)
 ![alt text](image-7.png)
-![alt text](image-8.png)
+
+## MCD 
+
+Ici on va introduire les notions d'entité, de relation et de propriété.
+
+Les propriétés sont les informations de bases d'un SI
+
+**Les entités sont les objets du SI :**
+
+![alt text](/img/image-8.png)
+
+**Les relations :**
+
+
+![alt text](/img/image-9.png)
+
+**Les Cardinalités :** Elles permettent de définir le nombre d'occurences d'une entité par rapport à une autre entité dans le cadre d'une relation. 
+
+![alt text](/img/image-10.png)
+
+Petit exemple : 
+
+![alt text](/img/image-11.png)
+
+![alt text](/img/image-12.png)
+
+![alt text](/img/image-13.png)
+
+### *Quelques relges de conception :*
+- Toute entité doit avoir un ID 
+- Toutes les propiétés dependent fonctionnellement de l'ID 
+- Le nom d'une propriété ne doit apparaitre q'une fois dans le MCD : si vous avez une entité `Eleve` et une entité `Professeur`, vous ne pouvez pas avoir une propriété nom dans les deux entité. Il faut donc renommer la propiété nom de l'entité  en nomprofesseur par exemple.
+
+
+### Installation d'analysis 
+*Prérequis java :*
+- version 7 **Minimum**

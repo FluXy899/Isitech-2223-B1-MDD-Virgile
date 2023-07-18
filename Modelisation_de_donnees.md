@@ -1,3 +1,4 @@
+# Lundi 
 ## Commande basique 
 
 Cette commande initialise le dépot Git, Git va traquer toutes les odifications effectuées au sein de ce dossier 
@@ -121,11 +122,18 @@ Création d'un dictionnaire de données
 ### Les dépendances fonctionnelles 
 \
 Une dépendance fonctionelle est une relation entre deux attributs d'une table. Elle permet de définir une relation de dépendance entre 2 attributs d'une table 
-# Sujet TP lundi
-![alt text](/img/image-14.png)
-![alt text](image-5.png)
-![alt text](image-6.png)
-![alt text](image-7.png)
+
+Le role d'une dependance fonctionnelle est de permettre définir une relation de dependance entre 2 attributs d'une table : une donnee A depend fonctionnellement d'une donnée B lorsque la valeur de B détermine la valeur de A 
+
+Pour formaliser une dependance fonctionnelle on utilise la notion suivante : 
+Numéro d'adhérent `(Nom, Prénom, CP, Ville, Téléphone, Date d'adhésion, mail)`
+
+La partie de gauche (numéro adhérent) est la `source` de la dépendance fonctionnelle. \
+
+La partie de droite designe le `but` de la dépendance.
+![alt text](/img/image-5.png)
+![alt text](/img/image-6.png)
+![alt text](/img/image-7.png)
 
 ## MCD 
 
@@ -163,3 +171,22 @@ Petit exemple :
 ### Installation d'analysis 
 *Prérequis java :*
 - version 7 **Minimum**
+
+# Mardi 
+
+
+### Les dépendances fonctionnelles composees 
+
+Si une dependance fonctionnelle qui fait intervenir plus de deux attributs on parle de dépendances fonctionnelles composee. 
+
+*Exemple :* pour connaitre le temps d'un coureur sur une etape donnee il nous fait son numero ou son nom ainsi que le nom ou le numero de l'etape. 
+
+Formalisation : 
+`(numéro courreur, numéro etape)` -> `(Temps)`
+
+
+
+# Sujet TP lundi
+![alt text](/img/image-14.png)
+
+

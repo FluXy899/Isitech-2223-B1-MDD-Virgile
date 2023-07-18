@@ -145,10 +145,24 @@ Les propriétés sont les informations de bases d'un SI
 
 ![alt text](/img/image-8.png)
 
+
 **Les relations :**
 
 
 ![alt text](/img/image-9.png)
+
+### Les relations "porteuses"
+
+Une relation est dite porteuse si elle possede des propiétés. 
+
+![alt text](/img/image-15.png)
+![alt text](/img/image-16.png)
+
+### Les relations reflexives 
+
+Une relation est reflexives si elle relie  une entité a elle meme \
+![alt text](/img/image-17.png)
+
 
 **Les Cardinalités :** Elles permettent de définir le nombre d'occurences d'une entité par rapport à une autre entité dans le cadre d'une relation. 
 
@@ -184,9 +198,26 @@ Si une dependance fonctionnelle qui fait intervenir plus de deux attributs on pa
 Formalisation : 
 `(numéro courreur, numéro etape)` -> `(Temps)`
 
+### Les dépendances fonctionnelles élémentaires 
+
+**Définition->** \
+Une dépendance fonctionnelle A->B est élémentaire s'il n'existe pas une donnee C, sous-ensemble de A, Décrivant une dépendance fonctionnelle type C-> B 
+
+*Exemple ->*
+- RefProduit -> LibeleProduit
+- NumCommande RefProduit -> QuantiteCommandee -> élémentaire
+- <strike> NumCommande Refproduit -> DesignationProduit</strike> -> non élémentaire
+
+### Les dépendances fonctionnelles élémentaires directe 
+"On dit que la dépendance fonctionnelle A -> B est directe s'il n'existe aucun attribut C tel que l'on puisse avoir A -> C et C -> B. 
+En d'autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut pas etre obtenue par transivité"
+
+*Exemple ->*
+- RefPromo -> NumApprenant
+- NumApprenant -> NomApprenant
+- RefPromo-> NomApprenant : RefPromo -> NumApprenant -> NomApprenant
 
 
-# Sujet TP lundi
-![alt text](/img/image-14.png)
 
-
+## Sujet TP 1 
+![Alt text](/img/image-14.png)

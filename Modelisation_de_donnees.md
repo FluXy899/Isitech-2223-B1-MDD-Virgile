@@ -1,8 +1,8 @@
 # Lundi 
-## Commande basique 
+## Commande basique sur Git/Github 
 
 Cette commande initialise le dépot Git, Git va traquer toutes les odifications effectuées au sein de ce dossier 
-``` sh 
+``` bash 
 git init 
 ```
 Pour consulter l'etat du dépot Git il suffit de lancer la commande : 
@@ -20,6 +20,30 @@ Pour sauvegarder le travail :
 ``` bash  
 git commit -m "nom du commit"
 ```
+Pour envoyer le travail sur un projet github 
+![alt text](/img/github.png)
+
+Commande pour lié le répertoire au porjet sur github 
+``` bash 
+git remote add origin git@github.com:FluXy899/Isitech-2223-B1-MDD-Virgile.git
+```
+Pour qu'il passe sur la branche main et oublier le master 
+``` bash 
+git branch -M main
+``` 
+pour voir qu'elle est notre origine 
+``` bash 
+git remote -v
+``` 
+puis faire  ce qui permet de synchroniser la premiere fois 
+``` bash 
+git push -u origin main
+``` 
+Maintenant votre projet remonte vers github 
+Pour syncrhoniser tout le long du porjet il faudra juste faire 
+``` bash 
+git push 
+``` 
 
 ## Merise 
 Merise est une méthode de modélisation de données. Elle permet de representer les données d'un systeme d'information.\
@@ -101,7 +125,7 @@ Pour effectuer la conceptiion d'un SI, on va utiliser un approche nivelée, elle
 ### Résumé: Les niveaux de Merise 
 ![alt text](/img/image-1.png)
 
-## Des données aux dépdendances fonctionnelles 
+## 4-  Des données aux dépdendances fonctionnelles 
 
 Pour etre integrées dans un systeme d'information, les données doivent etre triées et organisées. On va souvent tenter de classer par type de données : 
 - Chaines de caractères, format texte
@@ -119,7 +143,7 @@ Création d'un dictionnaire de données
 ![alt text](/TD%201/facture.png)
 
 
-### Les dépendances fonctionnelles 
+### 4.1- Les dépendances fonctionnelles 
 \
 Une dépendance fonctionelle est une relation entre deux attributs d'une table. Elle permet de définir une relation de dépendance entre 2 attributs d'une table 
 
@@ -135,7 +159,36 @@ La partie de droite designe le `but` de la dépendance.
 ![alt text](/img/image-6.png)
 ![alt text](/img/image-7.png)
 
-## MCD 
+
+### 4.2 - Les dépendances fonctionnelles composees 
+
+Si une dependance fonctionnelle qui fait intervenir plus de deux attributs on parle de dépendances fonctionnelles composee. 
+
+*Exemple :* pour connaitre le temps d'un coureur sur une etape donnee il nous fait son numero ou son nom ainsi que le nom ou le numero de l'etape. 
+
+Formalisation : 
+`(numéro courreur, numéro etape)` -> `(Temps)`
+
+### 4.3 - Les dépendances fonctionnelles élémentaires 
+
+**Définition->** \
+Une dépendance fonctionnelle A->B est élémentaire s'il n'existe pas une donnee C, sous-ensemble de A, Décrivant une dépendance fonctionnelle type C-> B 
+
+*Exemple ->*
+- RefProduit -> LibeleProduit
+- NumCommande RefProduit -> QuantiteCommandee -> élémentaire
+- <strike> NumCommande Refproduit -> DesignationProduit</strike> -> non élémentaire
+
+### 4.4  - Les dépendances fonctionnelles élémentaires directe 
+"On dit que la dépendance fonctionnelle A -> B est directe s'il n'existe aucun attribut C tel que l'on puisse avoir A -> C et C -> B. 
+En d'autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut pas etre obtenue par transivité"
+
+*Exemple ->*
+- RefPromo -> NumApprenant
+- NumApprenant -> NomApprenant
+- RefPromo-> NomApprenant : RefPromo -> NumApprenant -> NomApprenant
+
+## 5 - MCD 
 
 Ici on va introduire les notions d'entité, de relation et de propriété.
 
@@ -149,19 +202,19 @@ Quelques définitions :
 ![alt text](/img/image-8.png)
 
 
-**Les relations :**
+## 6 - Les relations :
 
 
 ![alt text](/img/image-9.png)
 
-### Les relations "porteuses"
+### 6.1 - Les relations "porteuses"
 
 Une relation est dite porteuse si elle possede des propiétés. 
 
 ![alt text](/img/image-15.png)
 ![alt text](/img/image-16.png)
 
-### Les relations reflexives 
+### 6.2 - Les relations reflexives 
 
 Une relation est reflexives si elle relie  une entité a elle meme \
 ![alt text](/img/image-17.png)
@@ -185,40 +238,12 @@ Petit exemple :
 - Le nom d'une propriété ne doit apparaitre q'une fois dans le MCD : si vous avez une entité `Eleve` et une entité `Professeur`, vous ne pouvez pas avoir une propriété nom dans les deux entité. Il faut donc renommer la propiété nom de l'entité  en nomprofesseur par exemple.
 
 
-### Installation d'analysis 
+## 7 - Installation d'analysis 
 *Prérequis java :*
 - version 7 **Minimum**
 
 # Mardi 
 
-
-### Les dépendances fonctionnelles composees 
-
-Si une dependance fonctionnelle qui fait intervenir plus de deux attributs on parle de dépendances fonctionnelles composee. 
-
-*Exemple :* pour connaitre le temps d'un coureur sur une etape donnee il nous fait son numero ou son nom ainsi que le nom ou le numero de l'etape. 
-
-Formalisation : 
-`(numéro courreur, numéro etape)` -> `(Temps)`
-
-### Les dépendances fonctionnelles élémentaires 
-
-**Définition->** \
-Une dépendance fonctionnelle A->B est élémentaire s'il n'existe pas une donnee C, sous-ensemble de A, Décrivant une dépendance fonctionnelle type C-> B 
-
-*Exemple ->*
-- RefProduit -> LibeleProduit
-- NumCommande RefProduit -> QuantiteCommandee -> élémentaire
-- <strike> NumCommande Refproduit -> DesignationProduit</strike> -> non élémentaire
-
-### Les dépendances fonctionnelles élémentaires directe 
-"On dit que la dépendance fonctionnelle A -> B est directe s'il n'existe aucun attribut C tel que l'on puisse avoir A -> C et C -> B. 
-En d'autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut pas etre obtenue par transivité"
-
-*Exemple ->*
-- RefPromo -> NumApprenant
-- NumApprenant -> NomApprenant
-- RefPromo-> NomApprenant : RefPromo -> NumApprenant -> NomApprenant
 
 
 ### Les contraintes d'integritefonctionnelles (CIF)
@@ -236,27 +261,3 @@ Dans ce type de relation une CIF existe si on a une cardinalite 1,1
 # Sujet TP 1 
 ![Alt text](/img/image-14.png)
 
-# Commande git 
-![alt text](/img/github.png)
-
-Commande pour lié avec le projet -> 
-``` bash 
-git remote add origin git@github.com:FluXy899/Isitech-2223-B1-MDD-Virgile.git
-```
-``` bash 
-git branch -M main
-``` 
-pour voir qu'elle est notre origine 
-``` bash 
-git remote -v
-``` 
-puis faire  ce qui permet de synchroniser 
-``` bash 
-git push -u origin main
-``` 
-maintenant votre projet remonte vers github 
-
-pour syncrhoniser tout le long du porjet il faudra juste faire 
-``` bash 
-git push 
-``` 

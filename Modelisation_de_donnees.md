@@ -143,6 +143,9 @@ Les propriétés sont les informations de bases d'un SI
 
 **Les entités sont les objets du SI :**
 
+Quelques définitions : 
+  - *entité forte :* une entité qui ne dépend pas d'une autre entité pour exister 
+  - *Entité faible :* une entité qui dépend d'une autre entité pour exister 
 ![alt text](/img/image-8.png)
 
 
@@ -218,6 +221,42 @@ En d'autres termes, cela signifie que la dépendance fonctionnelle entre A et B 
 - RefPromo-> NomApprenant : RefPromo -> NumApprenant -> NomApprenant
 
 
+### Les contraintes d'integritefonctionnelles (CIF)
 
-## Sujet TP 1 
+**Définition->**  
+Une CIF est définie par le fait qu'une des entités de l'association est complétement déterminée par la connaissance d'une ou de plusieur entités participant à l'association.
+
+*Exemple ->*
+![Alt text](/img/image-18.png)
+
+Une salle peut contenir 0 ou plusieurs Ordinateurs. Un ordinateur existe dans une et une seule salle.\
+Dans ce type de relation une CIF existe si on a une cardinalite 1,1
+
+
+# Sujet TP 1 
 ![Alt text](/img/image-14.png)
+
+# Commande git 
+![alt text](/img/github.png)
+
+Commande pour lié avec le projet -> 
+``` bash 
+git remote add origin git@github.com:FluXy899/Isitech-2223-B1-MDD-Virgile.git
+```
+``` bash 
+git branch -M main
+``` 
+pour voir qu'elle est notre origine 
+``` bash 
+git remote -v
+``` 
+puis faire  ce qui permet de synchroniser 
+``` bash 
+git push -u origin main
+``` 
+maintenant votre projet remonte vers github 
+
+pour syncrhoniser tout le long du porjet il faudra juste faire 
+``` bash 
+git push 
+``` 

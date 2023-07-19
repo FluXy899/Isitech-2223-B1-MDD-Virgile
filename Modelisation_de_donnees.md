@@ -449,7 +449,7 @@ Vendu (Id_Vente_Info_Vente, Id_Agriculteur_Agriculteur)
 En_vente (Id_Agriculteur_Agriculteur, Id_Legume_Legume, Id_Animal_Animal_, Id_Fruit_Fruits) 
 
 **Script MySQL**
-```
+``` sql
 DROP TABLE IF EXISTS Info_Vente ;
 CREATE TABLE Info_Vente (Id_Vente_Info_Vente INT(10) AUTO_INCREMENT NOT NULL,
 Date_Info_Vente DATE,
@@ -503,4 +503,71 @@ ALTER TABLE En_vente ADD CONSTRAINT FK_En_vente_Id_Animal_Animal_ FOREIGN KEY (I
 ALTER TABLE En_vente ADD CONSTRAINT FK_En_vente_Id_Fruit_Fruits FOREIGN KEY (Id_Fruit_Fruits) REFERENCES Fruits (Id_Fruit_Fruits);
 ```
 
+# Exercice 2 
 
+**MPD :**
+Shèma relationnel 
+
+Ensembles(CodeEnsemble, Désignation) 
+
+Sous-Ensembles(CodeSousEnsemble, Désignation, Longueur, Largeur, Hauteur, Prix_Unitaire) 
+
+Composants(CodeComposant, Désignation, Prix_Unitaire) 
+
+LienEnsSE(#CodeEnsemble, #CodeSousEnsemble, Qté) 
+
+LienEnsComposant(#CodeEnsemble, #CodeComposant, Qté) 
+
+LienSEComposant(#CodeSousEnsemble, #CodeComposant, Qté) 
+
+```SQL
+DROP TABLE IF EXISTS Ensembles ;
+CREATE TABLE Ensembles (CodeEnsemble INT(10) AUTO_INCREMENT NOT NULL,
+Désignation VARCHAR(250),
+PRIMARY KEY (CodeEnsemble)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Sous-Ensembles ;
+CREATE TABLE Sous-Ensembles (CodeSousEnsemble INT(10) AUTO_INCREMENT NOT NULL,
+Désignation VARCHAR(250),
+Longueur FLOAT(20),
+Largeur FLOAT(20),
+Hauteur FLOAT(20),
+Prix_Unitaire FLOAT(10),
+PRIMARY KEY (CodeSousEnsemble)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Composants ;
+CREATE TABLE Composants (CodeComposant INT(10) AUTO_INCREMENT NOT NULL,
+Désignation VARCHAR(250),
+Prix_Unitaire FLOAT(10),
+PRIMARY KEY (CodeComposant)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS LienEnsSE ;
+CREATE TABLE LienEnsSE (CodeEnsemble INT(10) NOT NULL,
+CodeSousEnsemble INT(10) NOT NULL,
+Qté INT(10),
+PRIMARY KEY (CodeEnsemble,
+ CodeSousEnsemble)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS LienEnsComposant ;
+CREATE TABLE LienEnsComposant (CodeEnsemble INT(10) NOT NULL,
+CodeComposant INT(10) NOT NULL,
+Qté INT(10),
+PRIMARY KEY (CodeEnsemble,
+ CodeComposant)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS LienSEComposant ;
+CREATE TABLE LienSEComposant (CodeSousEnsemble INT(10) NOT NULL,
+CodeComposant INT(10) NOT NULL,
+Qté INT(10),
+PRIMARY KEY (CodeSousEnsemble,
+ CodeComposant)) ENGINE=InnoDB;
+```
+**MLD :**
+
+![alt text](/img/MLDEXO2.png)
+
+**MCD :**
+
+![alt text](/img/MCDEXO2.png)
+
+# Exercice 3 

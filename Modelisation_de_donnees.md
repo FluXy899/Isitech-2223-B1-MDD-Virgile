@@ -506,7 +506,8 @@ ALTER TABLE En_vente ADD CONSTRAINT FK_En_vente_Id_Fruit_Fruits FOREIGN KEY (Id_
 # Exercice 2 
 
 **MPD :**
-Shèma relationnel 
+
+*Shèma relationnel :*
 
 Ensembles(CodeEnsemble, Désignation) 
 
@@ -526,8 +527,8 @@ CREATE TABLE Ensembles (CodeEnsemble INT(10) AUTO_INCREMENT NOT NULL,
 Désignation VARCHAR(250),
 PRIMARY KEY (CodeEnsemble)) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS Sous-Ensembles ;
-CREATE TABLE Sous-Ensembles (CodeSousEnsemble INT(10) AUTO_INCREMENT NOT NULL,
+DROP TABLE IF EXISTS Sous_Ensembles ;
+CREATE TABLE Sous_Ensembles (CodeSousEnsemble INT(10) AUTO_INCREMENT NOT NULL,
 Désignation VARCHAR(250),
 Longueur FLOAT(20),
 Largeur FLOAT(20),
@@ -562,6 +563,10 @@ Qté INT(10),
 PRIMARY KEY (CodeSousEnsemble,
  CodeComposant)) ENGINE=InnoDB;
 ```
+*Resultat script SQL :* 
+
+![alt text](/img/ResultSQLEXO2.png)
+
 **MLD :**
 
 ![alt text](/img/MLDEXO2.png)
@@ -571,3 +576,90 @@ PRIMARY KEY (CodeSousEnsemble,
 ![alt text](/img/MCDEXO2.png)
 
 # Exercice 3 
+
+**Dictionnaire :**
+
+![alt text](/img/DICEXO3.png)
+
+**MCD :**
+
+![alt text](/img/MCDEXO3.png)
+
+**MLD :**
+
+![alt text](/img/MLDEXO3.png)
+
+
+**MPD :** 
+
+*Shèma Relationel :*
+
+Client (Id_Client_Client, Nom_Intervention, Prenom_Intervention, Telephone_Intervention, Adresse_Intervention)  
+Intervention (Id_Intervention_Intervention, Type_Intervention_Intervention, Date_Intervention, Type_Materiel_Intervention, Type_Manipulations_Intervention)  
+tarifs (Temps_tarifs, Intervention_complexe_Prix, Intervention_simple_Prix)  
+Composant (Id_Composant__Composant, Etat_Composant, Prix_Composant)  
+Entreprise (Id_entrerprise_Entreprise, Nom_Entreprise)  
+Intervien (Id_entrerprise_Entreprise, Id_Intervention_Intervention, Id_Client_Client)  
+En_vente (Id_entrerprise_Entreprise, Id_Composant__Composant, Quantite_En_vente)  
+Couts (Temps_tarifs, Id_Intervention_Intervention)
+```SQL
+
+DROP TABLE IF EXISTS Client ;
+CREATE TABLE Client (Id_Client_Client INT(10) AUTO_INCREMENT NOT NULL,
+Nom_Intervention VARCHAR(250),
+Prenom_Intervention VARCHAR(250),
+Telephone_Intervention VARCHAR(250),
+Adresse_Intervention VARCHAR(250),
+PRIMARY KEY (Id_Client_Client)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Intervention ;
+CREATE TABLE Intervention (Id_Intervention_Intervention INT(10) AUTO_INCREMENT NOT NULL,
+Type_Intervention_Intervention VARCHAR(250),
+Date_Intervention DATE,
+Type_Materiel_Intervention VARCHAR(250),
+Type_Manipulations_Intervention VARCHAR(250),
+PRIMARY KEY (Id_Intervention_Intervention)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS tarifs ;
+CREATE TABLE tarifs (Temps_tarifs INT(10) AUTO_INCREMENT NOT NULL,
+Intervention_complexe_Prix FLOAT(10),
+Intervention_simple_Prix FLOAT(10),
+PRIMARY KEY (Temps_tarifs)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Composant ;
+CREATE TABLE Composant (Id_Composant__Composant INT(10) AUTO_INCREMENT NOT NULL,
+Etat_Composant VARCHAR(250),
+Prix_Composant FLOAT(10),
+PRIMARY KEY (Id_Composant__Composant)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Entreprise ;
+CREATE TABLE Entreprise (Id_entrerprise_Entreprise INT(10) AUTO_INCREMENT NOT NULL,
+Nom_Entreprise VARCHAR(250),
+PRIMARY KEY (Id_entrerprise_Entreprise)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Intervien ;
+CREATE TABLE Intervien (Id_entrerprise_Entreprise INT(10) NOT NULL,
+
+Id_Intervention_Intervention INT(10) NOT NULL,
+Id_Client_Client INT(10) NOT NULL,
+PRIMARY KEY (Id_entrerprise_Entreprise,
+ Id_Intervention_Intervention,
+ Id_Client_Client)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS En_vente ;
+CREATE TABLE En_vente (Id_entrerprise_Entreprise INT(10) NOT NULL,
+Id_Composant__Composant INT(10) NOT NULL,
+Quantite_En_vente INT(10),
+PRIMARY KEY (Id_entrerprise_Entreprise,
+ Id_Composant__Composant)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Couts ;
+CREATE TABLE Couts (Temps_tarifs INT(10) NOT NULL,
+Id_Intervention_Intervention INT(10) NOT NULL,
+PRIMARY KEY (Temps_tarifs,
+ Id_Intervention_Intervention)) ENGINE=InnoDB;
+```
+*Resultat script SQL :* 
+
+![alt text](/img/ResultSQLEXO3.png)
+

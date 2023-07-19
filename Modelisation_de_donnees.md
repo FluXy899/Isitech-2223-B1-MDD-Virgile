@@ -31,11 +31,11 @@ Pour qu'il passe sur la branche main et oublier le master
 ``` bash 
 git branch -M main
 ``` 
-pour voir qu'elle est notre origine 
+Pour voir qu'elle est notre origine 
 ``` bash 
 git remote -v
 ``` 
-puis faire  ce qui permet de synchroniser la premiere fois 
+Puis faire  ce qui permet de synchroniser la premiere fois 
 ``` bash 
 git push -u origin main
 ``` 
@@ -143,7 +143,7 @@ Création d'un dictionnaire de données
 ![alt text](/TD%201/facture.png)
 
 
-### 4.1- Les dépendances fonctionnelles 
+###   4.1- Les dépendances fonctionnelles 
 \
 Une dépendance fonctionelle est une relation entre deux attributs d'une table. Elle permet de définir une relation de dépendance entre 2 attributs d'une table 
 
@@ -160,7 +160,7 @@ La partie de droite designe le `but` de la dépendance.
 ![alt text](/img/image-7.png)
 
 
-### 4.2 - Les dépendances fonctionnelles composees 
+###   4.2 - Les dépendances fonctionnelles composees 
 
 Si une dependance fonctionnelle qui fait intervenir plus de deux attributs on parle de dépendances fonctionnelles composee. 
 
@@ -169,7 +169,7 @@ Si une dependance fonctionnelle qui fait intervenir plus de deux attributs on pa
 Formalisation : 
 `(numéro courreur, numéro etape)` -> `(Temps)`
 
-### 4.3 - Les dépendances fonctionnelles élémentaires 
+###   4.3 - Les dépendances fonctionnelles élémentaires 
 
 **Définition->** \
 Une dépendance fonctionnelle A->B est élémentaire s'il n'existe pas une donnee C, sous-ensemble de A, Décrivant une dépendance fonctionnelle type C-> B 
@@ -179,7 +179,7 @@ Une dépendance fonctionnelle A->B est élémentaire s'il n'existe pas une donne
 - NumCommande RefProduit -> QuantiteCommandee -> élémentaire
 - <strike> NumCommande Refproduit -> DesignationProduit</strike> -> non élémentaire
 
-### 4.4  - Les dépendances fonctionnelles élémentaires directe 
+###   4.4  - Les dépendances fonctionnelles élémentaires directe 
 "On dit que la dépendance fonctionnelle A -> B est directe s'il n'existe aucun attribut C tel que l'on puisse avoir A -> C et C -> B. 
 En d'autres termes, cela signifie que la dépendance fonctionnelle entre A et B ne peut pas etre obtenue par transivité"
 
@@ -198,7 +198,8 @@ Les propriétés sont les informations de bases d'un SI
 
 Quelques définitions : 
   - *entité forte :* une entité qui ne dépend pas d'une autre entité pour exister 
-  - *Entité faible :* une entité qui dépend d'une autre entité pour exister 
+  - *Entité faible :* une entité qui dépend d'une autre entité pour exister
+  
 ![alt text](/img/image-8.png)
 
 

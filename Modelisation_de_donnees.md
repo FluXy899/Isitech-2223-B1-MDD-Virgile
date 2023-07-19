@@ -424,6 +424,8 @@ Résultat MLD Perso :
 
 # Exercice 1 
 
+`Les tests des scripts SQL sont effectués avec le logiciel XAMPP en local.`
+
 **MCD :** 
 
 ![alt text](/img/MCDEXO1.png)
@@ -505,6 +507,8 @@ ALTER TABLE En_vente ADD CONSTRAINT FK_En_vente_Id_Fruit_Fruits FOREIGN KEY (Id_
 
 # Exercice 2 
 
+`Les tests des scripts SQL sont effectués avec le logiciel XAMPP en local.`
+
 **MPD :**
 
 *Shèma relationnel :*
@@ -520,6 +524,8 @@ LienEnsSE(#CodeEnsemble, #CodeSousEnsemble, Qté)
 LienEnsComposant(#CodeEnsemble, #CodeComposant, Qté) 
 
 LienSEComposant(#CodeSousEnsemble, #CodeComposant, Qté) 
+
+*Script SQL :*
 
 ```SQL
 DROP TABLE IF EXISTS Ensembles ;
@@ -577,6 +583,8 @@ PRIMARY KEY (CodeSousEnsemble,
 
 # Exercice 3 
 
+`Les tests des scripts SQL sont effectués avec le logiciel XAMPP en local.`
+
 **Dictionnaire :**
 
 ![alt text](/img/DICEXO3.png)
@@ -602,8 +610,10 @@ Entreprise (Id_entrerprise_Entreprise, Nom_Entreprise)
 Intervien (Id_entrerprise_Entreprise, Id_Intervention_Intervention, Id_Client_Client)  
 En_vente (Id_entrerprise_Entreprise, Id_Composant__Composant, Quantite_En_vente)  
 Couts (Temps_tarifs, Id_Intervention_Intervention)
-```SQL
 
+*Script SQL :*
+
+```SQL
 DROP TABLE IF EXISTS Client ;
 CREATE TABLE Client (Id_Client_Client INT(10) AUTO_INCREMENT NOT NULL,
 Nom_Intervention VARCHAR(250),
@@ -662,4 +672,36 @@ PRIMARY KEY (Temps_tarifs,
 *Resultat script SQL :* 
 
 ![alt text](/img/ResultSQLEXO3.png)
+
+
+# Exercice 4
+
+`Les tests des scripts SQL sont effectués avec le logiciel XAMPP en local.`
+
+**Dictionnaire :**
+
+![alt text](/img/)
+
+**MCD :**
+
+![alt text](/img/)
+
+**MLD :**
+
+![alt text](/img/)
+
+
+**MPD :** 
+
+*Shèma Relationel :*
+
+
+*Script SQL :*
+
+```SQL
+
+```
+*Resultat script SQL :* 
+
+![alt text](/img/)
 

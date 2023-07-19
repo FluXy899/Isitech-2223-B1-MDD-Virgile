@@ -322,6 +322,10 @@ Toute relation porteuse de propriétés se transformera en entité et absorbera 
 Toute relation réflexive se transformera en entité et absorbera comme clé étrangère l’identifiant de l’entité qui lui est liée.
 
 
+## 9 - Modèle Physique des données (MPD)
+
+
+
 # Sujet TP 1 
 ![Alt text](/img/image-14.png)
 
@@ -330,6 +334,20 @@ A partir du MCD suivant il faut construire le MLD.
 
 ![alt text](/img/image-27.png)
 
-Résultat MLD : 
+Le MLD est le suivant Correction : 
 
-![alt text](/img/CP1.png)
+![alt text](/img/image-28.png)
+
+
+Résultat MLD Perso : 
+
+![alt text](/img/TD1.png)
+
+# Exercice 1 
+
+MCD : 
+![alt text](/img/MCDEXO1.png)
+
+MLD :
+![alt text](/img/MLDEXO1.png)
+

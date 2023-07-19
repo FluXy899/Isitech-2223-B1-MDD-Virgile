@@ -324,6 +324,85 @@ Toute relation réflexive se transformera en entité et absorbera comme clé ét
 
 ## 9 - Modèle Physique des données (MPD)
 
+Voici le schema relationnel/MPD correspondant au MLD precedent :
+
+Diplômes (Diplomes)
+
+Possède (#NumEmployé, #Diplôme, Date d’obtention)
+
+Employés (NumEmployé, Nom, Prénom, Adresse, Code Postal, Ville, Téléphone)
+
+Tables (NumTable, Capacité)
+
+Date (Date)
+
+Service (TypeService, Désignation)
+
+Boissons Diverses (NumBoissons, Désignation, Prix de vente)
+
+Contenir (#NumCommande, #NumBoissons, Quantité)
+
+Commande (NumCommande, #Numemployé, #Date, #TypeService, #NumTable)
+
+Comprend (#NumMenu, #NumCommande, Quantité)
+
+Menus (NumMenu, Libellé, Prix de vente)
+
+Constitué (#NumMenu, #NumPlat)
+
+Constituer (#NumCommande, #NumPlat, Quantité)
+
+Sélectionner (#NumCommande, #NumVin, Quantité)
+
+Carte des vins (NumVin, Nom du vin, Millesime, Prix de vente)
+
+Carte des plats (NumPlat, LibelléPlat, Prix de vente, #NumType)
+
+Type des plats (NumType, Désignation)
+
+Bouteilles (NumBouteille, Date Achat, Prix d’achat, # NumVin, #NumViticulteur)
+
+Viticulteur (NumViticulteur, Nom viticulteur, Prénom viticulteur, Adresse viticulteur, Code postal, Ville, Téléphone)
+
+A partir d'ici il est facile de generer le script SQL correspondant.
+
+```SQL
+CREATE TABLE CARTE_DES_VINS
+   (
+   NUMVIN INTEGER(2) NOT NULL ,
+   NOM_DU_VIN CHAR(40)   ,
+   MILLESIME INTEGER(2)  ,
+   PRIX_DE_VENTE REAL(5,2)
+,
+    PRIMARY KEY (NUMVIN) CONSTRAINT PK_CARTE_DES_VINS
+   );
+
+CREATE TABLE BOUTEILLES
+   (
+   NUMVITICULTEUR INTEGER(2) NOT NULL ,
+   NUMVIN INTEGER(2) NOT NULL ,
+   NUMBOUTEILLE INTEGER(2) NOT NULL ,
+   DATE_ACHAT DATE(8) ,
+   PRIX_D_ACHAT REAL(5,2)
+,
+    PRIMARY KEY (NUMVITICULTEUR, NUMVIN, NUMBOUTEILLE) CONSTRAINT
+PK_BOUTEILLES
+   );
+
+$
+CREATE TABLE VITICULTEUR
+   (
+   NUMVITICULTEUR INTEGER(2) NOT NULL ,
+   NOM_VITICULTEUR CHAR(20) ,
+   PRÉNOM_VITICULTEUR CHAR(20) ,
+   ADRESSE_VITICULTEUR CHAR(40) ,
+   CODE_POSTAL CHAR(5) ,
+   VILLE CHAR(40) ,
+   TÉLÉPHONE CHAR(15)
+,
+    PRIMARY KEY (NUMVITICULTEUR) CONSTRAINT PK_VITICULTEUR
+   );
+```
 
 
 # Sujet TP 1 
@@ -345,9 +424,83 @@ Résultat MLD Perso :
 
 # Exercice 1 
 
-MCD : 
+**MCD :** 
+
 ![alt text](/img/MCDEXO1.png)
 
-MLD :
+**MLD :**
+
 ![alt text](/img/MLDEXO1.png)
+
+**MPD :**
+
+Info_Vente (Id_Vente_Info_Vente, Date_Info_Vente, Poids_Info_Vente, Total_Achat_Info_Vente)  
+
+Agriculteur (Id_Agriculteur_Agriculteur, Nom_Agriculteur, Prenom_Agriculteur)  
+
+Legume (Id_Legume_Legume, Nom_Legume_Legume)  
+
+Animal_ (Id_Animal_Animal_, Type_Animal_Animal_)  
+
+Fruits (Id_Fruit_Fruits, Nom_Fruit_Fruits)  
+
+Vendu (Id_Vente_Info_Vente, Id_Agriculteur_Agriculteur)  
+
+En_vente (Id_Agriculteur_Agriculteur, Id_Legume_Legume, Id_Animal_Animal_, Id_Fruit_Fruits) 
+
+**Script MySQL**
+```
+DROP TABLE IF EXISTS Info_Vente ;
+CREATE TABLE Info_Vente (Id_Vente_Info_Vente INT(10) AUTO_INCREMENT NOT NULL,
+Date_Info_Vente DATE,
+Poids_Info_Vente FLOAT(20),
+Total_Achat_Info_Vente FLOAT(10),
+PRIMARY KEY (Id_Vente_Info_Vente)) ENGINE=InnoDB;ù$
+
+DROP TABLE IF EXISTS Agriculteur ;
+CREATE TABLE Agriculteur (Id_Agriculteur_Agriculteur INT(10) AUTO_INCREMENT NOT NULL,
+Nom_Agriculteur VARCHAR(250),
+Prenom_Agriculteur VARCHAR(250),
+PRIMARY KEY (Id_Agriculteur_Agriculteur)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Legume ;
+CREATE TABLE Legume (Id_Legume_Legume INT(10) AUTO_INCREMENT NOT NULL,
+Nom_Legume_Legume VARCHAR(250),
+PRIMARY KEY (Id_Legume_Legume)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Animal_ ;
+CREATE TABLE Animal_ (Id_Animal_Animal  INT(10) AUTO_INCREMENT NOT NULL,
+Type_Animal_Animal  VARCHAR(250),
+PRIMARY KEY (Id_Animal_Animal_)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Fruits ;
+CREATE TABLE Fruits (Id_Fruit_Fruits INT(10) AUTO_INCREMENT NOT NULL,
+Nom_Fruit_Fruits VARCHAR(250),
+PRIMARY KEY (Id_Fruit_Fruits)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Vendu ;
+CREATE TABLE Vendu (Id_Vente_Info_Vente **NOT FOUND**(10) AUTO_INCREMENT NOT NULL,
+Id_Agriculteur_Agriculteur **NOT FOUND**(10) NOT NULL,
+PRIMARY KEY (Id_Vente_Info_Vente,
+ Id_Agriculteur_Agriculteur)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS En_vente ;
+CREATE TABLE En_vente (Id_Agriculteur_Agriculteur **NOT FOUND**(10) AUTO_INCREMENT NOT NULL,
+Id_Legume_Legume **NOT FOUND**(10) NOT NULL,
+Id_Animal_Animal  **NOT FOUND**(10) NOT NULL,
+Id_Fruit_Fruits **NOT FOUND**(10) NOT NULL,
+PRIMARY KEY (Id_Agriculteur_Agriculteur,
+ Id_Legume_Legume,
+ Id_Animal_Animal_,
+ Id_Fruit_Fruits)) ENGINE=InnoDB;
+
+ALTER TABLE Vendu ADD CONSTRAINT FK_Vendu_Id_Vente_Info_Vente FOREIGN KEY (Id_Vente_Info_Vente) REFERENCES Info_Vente (Id_Vente_Info_Vente);
+
+ALTER TABLE Vendu ADD CONSTRAINT FK_Vendu_Id_Agriculteur_Agriculteur FOREIGN KEY (Id_Agriculteur_Agriculteur) REFERENCES Agriculteur (Id_Agriculteur_Agriculteur);
+ALTER TABLE En_vente ADD CONSTRAINT FK_En_vente_Id_Agriculteur_Agriculteur FOREIGN KEY (Id_Agriculteur_Agriculteur) REFERENCES Agriculteur (Id_Agriculteur_Agriculteur);
+ALTER TABLE En_vente ADD CONSTRAINT FK_En_vente_Id_Legume_Legume FOREIGN KEY (Id_Legume_Legume) REFERENCES Legume (Id_Legume_Legume);
+ALTER TABLE En_vente ADD CONSTRAINT FK_En_vente_Id_Animal_Animal_ FOREIGN KEY (Id_Animal_Animal_) REFERENCES Animal_ (Id_Animal_Animal_);
+ALTER TABLE En_vente ADD CONSTRAINT FK_En_vente_Id_Fruit_Fruits FOREIGN KEY (Id_Fruit_Fruits) REFERENCES Fruits (Id_Fruit_Fruits);
+```
+
 

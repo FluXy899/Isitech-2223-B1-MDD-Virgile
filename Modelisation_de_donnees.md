@@ -44,6 +44,14 @@ Pour syncrhoniser tout le long du porjet il faudra juste faire
 ``` bash 
 git push 
 ``` 
+Pour importer un depot git se trouvant sur github il faut créer un dossier et mettre la commande 
+``` bash 
+git clone lienssh ou https 
+``` 
+Pour syncrhoniser le dépot importer il suffit de faire 
+``` bash 
+git pull
+``` 
 
 ## Merise 
 Merise est une méthode de modélisation de données. Elle permet de representer les données d'un systeme d'information.\
@@ -245,20 +253,82 @@ Petit exemple :
 
 # Mardi 
 
-
-
 ### Les contraintes d'integritefonctionnelles (CIF)
 
 **Définition->**  
 Une CIF est définie par le fait qu'une des entités de l'association est complétement déterminée par la connaissance d'une ou de plusieur entités participant à l'association.
 
 *Exemple ->*
+
 ![Alt text](/img/image-18.png)
 
 Une salle peut contenir 0 ou plusieurs Ordinateurs. Un ordinateur existe dans une et une seule salle.\
 Dans ce type de relation une CIF existe si on a une cardinalite 1,1
 
+# Mercredi 
+
+## 8 - Modèle Logique des données (MLD)
+
+Le MLD  est la suite du processus Merise, on se rapproche un peu plus de de la BDD. 
+#### *Cas Simple  ->*
+*Partons du MCD suivant :* 
+
+![alt text](/img/image-19.png)
+
+*Nous arrivons au MLD suivant :*
+
+![alt text](/img/image-20.png)
+*Nous arrivons au MLD suivant :*
+L'entité qui possède la cardianlité `1.1` ou `0.1`  absorbe l'identifiant de l'entité plus forte (0.n ou 1.n ). Cet identitfiant devient alors une **clé etrangère**
+
+#### *Cas (0.n), (0.n) ou (1.n), (1.n)  ->*
+
+*Partons du MCD suivant :* 
+
+![alt text](/img/image-21.png)
+
+Dns le cas ou la `cardinalité maximun` est n des 2 cotés, on crée une entité intermédiaire qui va contenir les deux clés étrangères des deux entittés. 
+
+![alt text](/img/image-22.png)
+
+*Continuons avec le MCD suivant :*
+
+![alt text](/img/image-23.png)
+
+*En suivant la meme logique on obtient le MLD suivant :*
+
+![alt text](/img/image-24.png)
+
+#### *Cas d'une relation reflexive ->*
+
+*Partons du MCD suivant :* 
+
+![alt text](/img/image-25.png)
+
+*Nous arrivons au MLD suivant :*
+
+![alt text](/img/image-26.png)
+
+### 8.1 - Regles de passage du MCD au MLD 
+
+Règles simples de passage du MCD au MLD
+L’entité qui possède la cardinalité maximale égale à 1 recevra l’identifiant ou les identifiants des entités ayant les cardinalités maximales les plus fortes.
+
+Les relations ayant toutes leurs entités reliées avec des cardinalités maximales supérieures à 1 se transformeront en entité en absorbant les identifiants des entités jointes.
+
+Toute relation porteuse de propriétés se transformera en entité et absorbera comme clé étrangère les identifiants des entités qui lui sont liées.
+
+Toute relation réflexive se transformera en entité et absorbera comme clé étrangère l’identifiant de l’entité qui lui est liée.
+
+
 
 # Sujet TP 1 
 ![Alt text](/img/image-14.png)
 
+# Sujet Cas Pratique 
+A partir du MCD suivant il faut construire le MLD. 
+
+![alt text](/img/image-27.png)
+
+Résultat MLD : 
+![alt text](/img/CP1.png)

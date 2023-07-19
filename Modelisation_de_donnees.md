@@ -221,6 +221,7 @@ Quelques définitions :
 Une relation est dite porteuse si elle possede des propiétés. 
 
 ![alt text](/img/image-15.png)
+\
 ![alt text](/img/image-16.png)
 
 ### 6.2 - Les relations reflexives 
@@ -321,7 +322,6 @@ Toute relation porteuse de propriétés se transformera en entité et absorbera 
 Toute relation réflexive se transformera en entité et absorbera comme clé étrangère l’identifiant de l’entité qui lui est liée.
 
 
-
 # Sujet TP 1 
 ![Alt text](/img/image-14.png)
 
@@ -331,4 +331,5 @@ A partir du MCD suivant il faut construire le MLD.
 ![alt text](/img/image-27.png)
 
 Résultat MLD : 
+
 ![alt text](/img/CP1.png)

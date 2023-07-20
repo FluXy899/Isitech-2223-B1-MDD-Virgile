@@ -404,9 +404,112 @@ CREATE TABLE VITICULTEUR
    );
 ```
 
+## 10 - Les formes normales (FN)
+
+Ensemble de regles qui a pour but d'éviter les anomalies au sein des BDDR(Base de données relationel).
+Pour appliquer les concepts des formes normales il est nécessaire de connaitre les trois premieres fromes normales 
+
+### 10.1 - Forme normale 1 (1FN)
+
+Une relation est en premiere forme normale si -> 
+
+- Tous les attributs sont atomiques 
+- Les attribus ne contiennent pas de valeurs répétitives 
+
+*Exemple :*
+
+Clients (numCli, Nom, Prénom, Adresse, Telephone)
+
+![Alt text](/img/image-29.png)
+
+![Alt text](/img/image-30.png)
+
+### 10.2 - Forme normale 2 (2FN)
+
+Une relation est en deuxieme forme normale si -> 
+
+- Elle est 1FN 
+- Si tous les attributs qui ne sont pas des clés ne dépendent pas d'une partie de la clé primaire 
+
+*Exemple :*
+
+Commande(numCli, CodeArticle, Date, QteCommande, Designation)
+
+![Alt text](/img/image-31.png)
+
+![Alt text](/img/image-32.png)
+
+### 10.3 - Forme normale 3 (3FN)
+
+Une relation est en troisieme forme normale si ->
+
+- Elle est en deuxieme forme normale
+- Si toutes les dépendances fonctionnelles(DF) sont directes
+
+"Les attributs non clé primaire ne dépendent pas d'un autre attribut non clé primaire"
+
+*Exemple :*
+
+Commande(numCommande, #CodeClient, #RefArticle)
+
+![Alt text](/img/image-33.png)
+
+![Alt text](/img/image-34.png)
+
+## 11 - Les diagrammes des flux 
+
+Les diagrammes des flux permettent de modéliser les fluxs d'informations entre les acteurs du systeme d''information et les a cteurs du systeme opérant.
+
+**Définition ->**
+
+- `Domaine d'étude :` Le périmetre d'une activite au sein d'une entreprise, d'une activite spécifique
+- `L'acteur :` Une personne, un service, une entreprise, un systeme informatique qui intervient dans le domaine d'étude au moyen d'un flux d'information
+- `Les fluxs :` Les informations qui circulent entre les acteurs, represente par une fleche et porte un nom et peut etre numérote (par soucis de chronologie)
+
+*Représentation graphique :*
+
+Quelques regles a respecter :
+
+- Un flux ne peut pas etre bidirectionnel
+- Un flux ne doit pas etre reflexif
+- On ne présente pas les fluxs entre les acteurs externes
+
+![Alt text](/img/image-35.png)
+
+## 12 - UML 
+
+`UML :` Unified Modeling Language(Langage de Modélisation Unifié) est un langage de modélisation de données. UML a été normalisé en 1997 par l'OMG (Object Management Group). Son but est de mettre en forme les concepts orientés objets au travers de diagramme. 
+
+UML porpose 13 diagrammes dependants de facon hiérarchique et se complétant.
+
+1. Les diagrammes statiques : ils permettent de modéliser la structure d'un systeme
+    - Diagramme de classe
+    - Diagramme d'objets
+    - Diagramme de composants
+    - Diagramme de déploiement
+
+2. Les diagrammes comportemmentaux : 
+    - Diagramme de cas d'usage
+    - Diagramme d'activité
+    - Diagramme d'état-transition
+
+3. Les diagrammes dyamiques : 
+    - Diagramme de séquence
+    - Diagramme de communication
+    - Diagramme de global d'interaction
+    - Diagramme de temps
+
+### 12.1 - Analogie Merise / UML
+
+1. Cas du MCD et du diagramme de classe :  
+
+
+
+![Alt text](/img/image-36.png)
 
 # Sujet TP 1 
 ![Alt text](/img/image-14.png)
+
 
 # Sujet Cas Pratique 
 A partir du MCD suivant il faut construire le MLD. 
@@ -677,10 +780,6 @@ PRIMARY KEY (Temps_tarifs,
 # Exercice 4
 
 `Les tests des scripts SQL sont effectués avec le logiciel XAMPP en local.`
-
-**Dictionnaire :**
-
-![alt text](/img/)
 
 **MCD :**
 

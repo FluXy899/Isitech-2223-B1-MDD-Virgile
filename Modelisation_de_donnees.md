@@ -867,3 +867,30 @@ PRIMARY KEY (Id_Agence_Agence_Immo,
 
 ![alt text](/img/resultSQLEXO4.png)
 
+# Exercice 5
+
+`Les tests des scripts SQL sont effectués avec le logiciel XAMPP en local.`
+
+**MCD :**
+
+![alt text](/img/MCDEXO5.png)
+
+**MLD :**
+
+![alt text](/img/MLDEXO5.png)
+
+
+**MPD :** 
+
+*Shèma Relationel :*
+
+
+*Script SQL :*
+
+```SQL
+
+```
+*Resultat script SQL :* 
+
+![alt text](/img/resultSQLEXO5.png)
+

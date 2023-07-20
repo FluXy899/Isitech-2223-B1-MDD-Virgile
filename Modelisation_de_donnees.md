@@ -792,24 +792,78 @@ PRIMARY KEY (Temps_tarifs,
 
 **MCD :**
 
-![alt text](/img/)
+![alt text](/img/MCDEXO4.png)
 
 **MLD :**
 
-![alt text](/img/)
+![alt text](/img/MLDEXO4.png)
 
 
 **MPD :** 
 
 *Shèma Relationel :*
 
+Agence_Immo (Id_Agence_Agence_Immo, Nom_Agence_Immo)  
+Maison (Id_Maison_Maison, Adresse_Maison)  
+Appartement (Id_Appart_Appartement, Adresse_Appartement)  
+Contrat (Id_Contrat_Contrat, Type_Contrat_Contrat)  
+User (Id_User_User, Nom_User, Prenom_User, Adresse_User, Mail_User, Telephone_User)  
+Possede (Id_User_User, Id_Appart_Appartement, Id_Maison_Maison, Id_Contrat_Contrat, Quantite_Possede)  
+Client (Id_Agence_Agence_Immo, Id_User_User, Id_Contrat_Contrat)  
+
 
 *Script SQL :*
 
 ```SQL
+DROP TABLE IF EXISTS Agence_Immo ;
+CREATE TABLE Agence_Immo (Id_Agence_Agence_Immo INT(10) AUTO_INCREMENT NOT NULL,
+Nom_Agence_Immo VARCHAR(250),
+PRIMARY KEY (Id_Agence_Agence_Immo)) ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS Maison ;
+CREATE TABLE Maison (Id_Maison_Maison INT(10) AUTO_INCREMENT NOT NULL,
+Adresse_Maison VARCHAR(250),
+PRIMARY KEY (Id_Maison_Maison)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Appartement ;
+CREATE TABLE Appartement (Id_Appart_Appartement INT(10) AUTO_INCREMENT NOT NULL,
+Adresse_Appartement VARCHAR(250),
+PRIMARY KEY (Id_Appart_Appartement)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Contrat ;
+CREATE TABLE Contrat (Id_Contrat_Contrat INT(10) AUTO_INCREMENT NOT NULL,
+Type_Contrat_Contrat VARCHAR(250),
+PRIMARY KEY (Id_Contrat_Contrat)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS User ;
+CREATE TABLE User (Id_User_User INT(10) AUTO_INCREMENT NOT NULL,
+Nom_User VARCHAR(250),
+Prenom_User VARCHAR(250),
+Adresse_User VARCHAR(250),
+Mail_User VARCHAR(250),
+Telephone_User VARCHAR(250),
+PRIMARY KEY (Id_User_User)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Possede ;
+CREATE TABLE Possede (Id_User_User INT(10) NOT NULL,
+Id_Appart_Appartement INT(10) NOT NULL,
+Id_Maison_Maison INT(10) NOT NULL,
+Id_Contrat_Contrat INT(10) NOT NULL,
+Quantite_Possede INT(10),
+PRIMARY KEY (Id_User_User,
+ Id_Appart_Appartement,
+ Id_Maison_Maison,
+ Id_Contrat_Contrat)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS Client ;
+CREATE TABLE Client (Id_Agence_Agence_Immo INT(10) NOT NULL,
+Id_User_User INT(10) NOT NULL,
+Id_Contrat_Contrat INT(10) NOT NULL,
+PRIMARY KEY (Id_Agence_Agence_Immo,
+ Id_User_User,
+ Id_Contrat_Contrat)) ENGINE=InnoDB;
 ```
 *Resultat script SQL :* 
 
-![alt text](/img/)
+![alt text](/img/resultSQLEXO4.png)
 

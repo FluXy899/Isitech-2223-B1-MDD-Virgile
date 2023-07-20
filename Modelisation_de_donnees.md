@@ -487,11 +487,15 @@ UML porpose 13 diagrammes dependants de facon hiérarchique et se complétant.
     - Diagramme d'objets
     - Diagramme de composants
     - Diagramme de déploiement
+    
+<br> 
 
 2. Les diagrammes comportemmentaux : 
     - Diagramme de cas d'usage
     - Diagramme d'activité
     - Diagramme d'état-transition
+    
+<br> 
 
 3. Les diagrammes dyamiques : 
     - Diagramme de séquence
@@ -502,10 +506,15 @@ UML porpose 13 diagrammes dependants de facon hiérarchique et se complétant.
 ### 12.1 - Analogie Merise / UML
 
 1. Cas du MCD et du diagramme de classe :  
-
-
+Le MCD et le diagramme de classes partagent beaucoup de points communs. Les différences majeures apparaissent dans le côté objet d’UML. Cependant, au niveau du processus d’analyse, le diagramme de classes se rapproche plus du modèle logique des données. Le langage UML pour représenter une base de données ne passe pas d’un état correspondant à un MCD à un MLD. Il faut donc à l’analyste une bonne approche ou vision de la base de données pour la représenter sans faille en langage UML. Le découpage MCD, MLD apporte plus de sécurité, à ce niveau-là, qu’UML.
 
 ![Alt text](/img/image-36.png)
+
+![Alt text](/img/image-37.png)
+
+Representation d'une relation :
+
+![Alt text](/img/image-38.png)
 
 # Sujet TP 1 
 ![Alt text](/img/image-14.png)

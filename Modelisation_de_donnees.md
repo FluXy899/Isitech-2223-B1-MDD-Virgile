@@ -869,7 +869,7 @@ PRIMARY KEY (Id_Agence_Agence_Immo,
 
 # Exercice 5
 
-`Les tests des scripts SQL sont effectués avec le logiciel XAMPP en local.`
+`Les tests des scripts SQL sont  effectués avec le logiciel XAMPP en local.`
 
 **MCD :**
 
@@ -885,7 +885,7 @@ PRIMARY KEY (Id_Agence_Agence_Immo,
 *Shèma Relationel :*
 
 
-*Script SQL :*
+*Script SQL :* 
 
 ```SQL
 
